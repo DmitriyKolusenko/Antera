@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="web-service">
+  <xs:element name="ColorRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="cyan" type="xs:boolean"/>
+        <xs:element name="magenta" type="xs:boolean"/>
+        <xs:element name="yellow" type="xs:boolean"/>
+        <xs:element name="black" type="xs:boolean"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="color" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
