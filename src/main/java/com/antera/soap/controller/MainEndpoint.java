@@ -8,12 +8,20 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import web_service.ColorRequest;
 import web_service.ColorResponse;
+import web_service.ColorStringRequest;
 
 @Endpoint
 public class MainEndpoint {
 
     @Autowired
     ColorService colorService;
+    @PayloadRoot(namespace = "web-service", localPart = "ColorStringRequest")
+    @ResponsePayload
+    public ColorResponse ColorStringRequest(@RequestPayload ColorStringRequest request) {
+        ColorResponse response = new ColorResponse();
+        response.setColor(colorService.getColor(request));
+        return response;
+    }
 
     @PayloadRoot(namespace = "web-service", localPart = "ColorRequest")
     @ResponsePayload
